@@ -1,0 +1,93 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-bottom: 1px solid;
+  font-size: 1.5rem;
+  height: var(--navbar-height);
+  padding: 0.25rem 1rem;
+  position: relative;
+}
+
+.navbar a,
+.navbar button {
+  font-size: 100%;
+  cursor: pointer;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.menu-toggle {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 100%;
+  aspect-ratio: 1;
+}
+
+.navbar h3 {
+  margin: 0;
+}
+
+.navbar ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.navbar ul > li::before {
+  content: '📚️';
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--navbar-height);
+}
+
+.menu-content--open {
+  transition: all 200ms linear;
+  opacity: 1;
+  height: calc(100vh - var(--navbar-height));
+}
+
+.favorites {
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.search {
+  flex: 1;
+}
+
+.search > input {
+  font-size: 100%;
+  max-width: 20rem;
+  width: 100%;
+}
+
+.menu-content > .favorites,
+.menu-content > .search {
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 500px) {
+  .menu-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .favorites {
+    border-bottom: 0;
+  }
+
+  .search {
+    border-left: 1px solid var(--primary-color);
+  }
+}
